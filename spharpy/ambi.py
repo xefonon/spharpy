@@ -1,6 +1,7 @@
 from pyfar import Signal
 import numpy as np
 
+
 class AmbisonicsSignal(Signal):
     """Class for ambisonics signals.
 
@@ -56,9 +57,9 @@ class AmbisonicsSignal(Signal):
         To discuss: ambisonics channels always on first dimension?
         References
         ----------
-        .. 
+        ..
 
-        """ 
+        """
 
         # initialize signal specific parameters
         self._sampling_rate = sampling_rate
@@ -69,17 +70,18 @@ class AmbisonicsSignal(Signal):
         
         self._channel_order = channel_order
         
-        Signal.__init__(self, data, sampling_rate=sampling_rate, n_samples=n_samples,
-            domain=domain, fft_norm=fft_norm, comment=comment)
+        Signal.__init__(self, data, sampling_rate=sampling_rate,
+                        n_samples=n_samples, domain=domain, fft_norm=fft_norm,
+                        comment=comment)
 
     @property
     def N(self):
         return int(np.sqrt(self.cshape[0]-1))
-    
+  
     @property
     def sh_kind(self):
         return self._sh_kind
-    
-    @property 
+  
+    @property
     def channel_order(self):
         return self._channel_order
