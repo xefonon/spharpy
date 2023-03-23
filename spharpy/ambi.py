@@ -49,7 +49,7 @@ class AmbisonicsSignal(Signal):
             for more information. The default is ``'none'``, which is typically
             used for energy signals, such as impulse responses.
         channel_order: str, optional
-            The order in which the ambisonics channels are arraged. 
+            The order in which the ambisonics channels are arraged.
             The default is ``'acn'``
         comment : str
             A comment related to `data`. The default is ``None``.
@@ -67,9 +67,7 @@ class AmbisonicsSignal(Signal):
             self._sh_kind = sh_kind
         else:
             raise ValueError("sh kind has to be ``real`` or ``complex``")
-        
         self._channel_order = channel_order
-        
         Signal.__init__(self, data, sampling_rate=sampling_rate,
                         n_samples=n_samples, domain=domain, fft_norm=fft_norm,
                         comment=comment)
@@ -77,11 +75,11 @@ class AmbisonicsSignal(Signal):
     @property
     def N(self):
         return int(np.sqrt(self.cshape[0]-1))
-  
+
     @property
     def sh_kind(self):
         return self._sh_kind
-  
+
     @property
     def channel_order(self):
         return self._channel_order
