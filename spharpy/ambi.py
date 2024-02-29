@@ -20,7 +20,8 @@ class AmbisonicsSignal(Signal):
             domain='time',
             fft_norm='none',
             channel_order='acn',
-            comment=None):
+            comment="",
+            is_complex=False):
         """Create Ambisonicssignal with data, and sampling rate.
 
         Parameters
@@ -70,7 +71,7 @@ class AmbisonicsSignal(Signal):
         self._channel_order = channel_order
         Signal.__init__(self, data, sampling_rate=sampling_rate,
                         n_samples=n_samples, domain=domain, fft_norm=fft_norm,
-                        comment=comment)
+                        comment=comment, is_complex=is_complex)
 
     @property
     def N(self):
